@@ -1,19 +1,45 @@
-import React from "react";
-import { Link } from "react-router-dom";
+import React, { useState, useEffect } from "react";
 
-const Header = () => {
+const Header: React.FC = () => {
+  const [isScrolled, setIsScrolled] = useState(false);
+
+  useEffect(() => {
+    const handleScroll = () => {
+      const scrollTop = window.scrollY;
+      setIsScrolled(scrollTop > 0);
+    };
+
+    window.addEventListener("scroll", handleScroll);
+
+    // Cleanup event listener on component unmount
+    return () => {
+      window.removeEventListener("scroll", handleScroll);
+    };
+  }, []);
+
   return (
-    <div className="fixed grid grid-cols-3 bg-gray-900/10 top-0 w-full text-white items-center p-5 z-50">
-      <div className="ml-2 p-0 text-[20px] sm:text-[30px] font-bold">
+    <div
+      className={`fixed grid grid-cols-3 ${
+        isScrolled ? "bg-gray-200 text-black" : "bg-gray-900/5 text-white"
+      } top-0 w-full items-center sm:p-5 p-2 z-50 transition-colors duration-300`}
+    >
+      <div className="sm:l-2 p-0 text-[20px] sm:text-[30px] font-bold">
         <a href="#">
-          <span className="text-purple-800">x</span>Bytes.io
+          <span
+            className={`${isScrolled ? "text-purple-800" : "text-purple-800"}`}
+          >
+            x
+          </span>
+          Bytes.io
         </a>
       </div>
       <div className="hidden md:flex justify-between space-x-8 text-base py-2.5 font-normal">
         <ul className="flex space-x-8">
-          <li className="hover:text-purple-800 cursor-pointer">Work</li>
-          <li className="relative">
-            <button className="hover:text-purple-800 cursor-pointer text-nowrap">
+          <li className={`hover:text-purple-800 cursor-pointer`}>Work</li>
+          <li className="relative group">
+            <button
+              className={`hover:text-purple-800 cursor-pointer text-nowrap`}
+            >
               Services <span className="mt-0">⌄</span>
             </button>
             <ul className="absolute left-0 mt-2 hidden group-hover:block bg-gray-200 shadow-lg rounded z-10">
@@ -26,13 +52,15 @@ const Header = () => {
               {/* Add more dropdown items here */}
             </ul>
           </li>
-          <li className="hover:text-purple-800 cursor-pointer">Pricing</li>
-          <li className="hover:text-purple-800 cursor-pointer text-center text-nowrap">
+          <li className={`hover:text-purple-800 cursor-pointer`}>Pricing</li>
+          <li
+            className={`hover:text-purple-800 cursor-pointer text-center text-nowrap`}
+          >
             About Us
           </li>
-          <li className="hover:text-purple-800 cursor-pointer">Careers</li>
-          <li className="hover:text-purple-800 cursor-pointer">Tech</li>
-          <li className="hover:text-purple-800 cursor-pointer">Blog</li>
+          <li className={`hover:text-purple-800 cursor-pointer`}>Careers</li>
+          <li className={`hover:text-purple-800 cursor-pointer`}>Tech</li>
+          <li className={`hover:text-purple-800 cursor-pointer`}>Blog</li>
         </ul>
       </div>
       <div className="flex w-full sm:justify-end mr-10 justify-between items-center sm:mr-20">
@@ -40,7 +68,7 @@ const Header = () => {
           BOOK A CALL
         </button>
         <div className="sm:hidden ml-[90px]">
-          <button className="text-white text-2xl  p-4 rounded">
+          <button className="text-white text-2xl p-4 rounded">
             <span>☰</span>
           </button>
         </div>
