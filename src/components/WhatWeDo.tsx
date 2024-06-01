@@ -1,5 +1,3 @@
-import React from "react";
-
 function WhatWeDo() {
   return (
     <div className="relative py-20  grid gap-2 grid-rows-2 items-center justify-start h-full z-40">
