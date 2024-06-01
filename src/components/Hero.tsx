@@ -30,7 +30,7 @@ const Hero = () => {
               Your Success
             </h2>
           </div>
-          <button className="text-white bg-purple-700 mt-10 hover:bg-purple-800 focus:ring-4 focus:ring-purple-blue-300 font-bold rounded-full text-[12px] sm:text-[15px] px-6 sm:px-9 py-3 dark:bg-purple-600 dark:hover:bg-purple-700 focus:outline-none dark:focus:ring-purple-800 whitespace-nowrap">
+          <button className="text-white bg-transparent border-4 border-purple-700 mt-10 hover:bg-purple-700 focus:ring-4 focus:ring-purple-blue-300 font-bold rounded-full text-[12px] sm:text-[15px] px-6 sm:px-9 py-3 dark:bg-transparent dark:border-purple-600 dark:hover:bg-purple-700 focus:outline-none dark:focus:ring-purple-800 whitespace-nowrap">
             BOOK A CALL
           </button>
         </div>
