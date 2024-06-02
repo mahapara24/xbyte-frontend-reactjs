@@ -18,13 +18,13 @@ const Hero = () => {
         }}
       ></div>
       <Header />
-      <div className="relative flex items-center justify-start h-full text-white z-40">
-        <div className="bg-opacity-70 p-8 rounded-lg w-full mx-4 sm:mx-8 md:mx-16 lg:ml-24 xl:ml-32">
+      <div className="relative flex items-center justify-between h-full text-white z-40">
+        <div className="bg-opacity-70 p-8 rounded-lg w-full mx-8 ml-0 sm:mx-8 md:mx-16 lg:ml-24 xl:ml-32">
           <h1 className="text-gray-400 text-3xl font-extrabold">
             WE ARE xBYTE.IO
           </h1>
           <div>
-            <h2 className="text-white text-4xl sm:text-5xl lg:text-6xl font-extrabold mt-4">
+            <h2 className="text-white text-[40px] sm:text-5xl leading-10 lg:text-6xl font-bold sm:font-extrabold mt-4">
               Custom Product & <br /> Software Development <br /> Focused On
               Your Success
             </h2>

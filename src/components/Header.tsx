@@ -74,7 +74,9 @@ const Header: React.FC = () => {
         </button>
         <div className="sm:hidden ml-4">
           <button
-            className="text-white text-2xl p-4 rounded"
+            className={` text-2xl px-4 ml-4 rounded  ${
+              isScrolled ? " text-black" : " text-white"
+            }`}
             onClick={handleMenuToggle}
           >
             <span>☰</span>
@@ -82,8 +84,8 @@ const Header: React.FC = () => {
         </div>
       </div>
       {isMenuOpen && (
-        <div className="absolute top-16 left-0 right-0 bg-gray-900 sm:hidden">
-          <ul className="flex flex-col items-center space-y-4 py-4">
+        <div className="absolute top-14 left-0 right-0 pt-10 leading-[60px] bg-gray-300/90 w-full h-screen text-black md:hidden backdrop-blur-md">
+          <ul className="flex flex-col items-start justify-between pl-8 text-[28px] font-semibold space-y-4 py-4">
             <li className={`hover:text-purple-800 cursor-pointer`}>Work</li>
             <li className={`hover:text-purple-800 cursor-pointer`}>Services</li>
             <li className={`hover:text-purple-800 cursor-pointer`}>Pricing</li>
