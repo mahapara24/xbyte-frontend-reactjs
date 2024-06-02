@@ -3,6 +3,7 @@ import React, { useState, useEffect } from "react";
 const Header: React.FC = () => {
   const [isScrolled, setIsScrolled] = useState(false);
   const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const [isServicesOpen, setIsServicesOpen] = useState(false);
 
   useEffect(() => {
     const handleScroll = () => {
@@ -22,11 +23,15 @@ const Header: React.FC = () => {
     setIsMenuOpen(!isMenuOpen);
   };
 
+  const handleServicesToggle = () => {
+    setIsServicesOpen(!isServicesOpen);
+  };
+
   return (
     <div
       className={`fixed grid grid-cols-3 w-[412px] ${
         isScrolled ? "bg-gray-200 text-black" : "bg-gray-900/5 text-white"
-      } w- top-0 items-center justify-center p-2 sm:p-5 z-50 transition-colors duration-300 sm:justify-between sm:w-full`}
+      } top-0 items-center justify-center p-2 sm:p-5 z-50 transition-colors duration-300 sm:justify-between sm:w-full`}
     >
       <div className="p-0 text-[20px] sm:text-[30px] font-bold">
         <a href="#">
@@ -44,10 +49,18 @@ const Header: React.FC = () => {
           <li className="relative group">
             <button
               className={`hover:text-purple-800 cursor-pointer text-nowrap`}
+              onMouseEnter={handleServicesToggle}
+              onMouseLeave={handleServicesToggle}
             >
               Services <span className="mt-0">⌄</span>
             </button>
-            <ul className="absolute left-0 mt-2 hidden group-hover:block bg-gray-200 shadow-lg rounded z-10">
+            <ul
+              className={`absolute left-0 mt-2 bg-gray-200 text-purple-800 shadow-lg rounded z-10 ${
+                isServicesOpen ? "block" : "hidden"
+              }`}
+              onMouseEnter={handleServicesToggle}
+              onMouseLeave={handleServicesToggle}
+            >
               <li className="p-4 hover:text-purple-800 hover:bg-gray-800 cursor-pointer">
                 UX Product
               </li>
@@ -74,8 +87,8 @@ const Header: React.FC = () => {
         </button>
         <div className="sm:hidden ml-4">
           <button
-            className={` text-2xl px-4 ml-4 rounded  ${
-              isScrolled ? " text-black" : " text-white"
+            className={`text-2xl px-4 ml-4 rounded ${
+              isScrolled ? "text-black" : "text-white"
             }`}
             onClick={handleMenuToggle}
           >

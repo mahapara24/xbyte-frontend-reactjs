@@ -1,11 +1,12 @@
 function WhatWeDo() {
   return (
-    <div className="relative py-0 grid gap-2 grid-rows-2 min-h-screen z-40">
+    <div className="relative py-0 grid gap-2 grid-rows-2 sm:h-[140vh] h-[280vh] z-40">
       <div className="py-20 rounded-lg mb-4 mt-4 mx-4 sm:mx-8 md:mx-16 lg:ml-24 xl:ml-32">
         <h3 className="text-3xl sm:text-4xl md:text-5xl font-bold w-full sm:w-auto">
           What we do
+          {/*  min-h-screen*/}
         </h3>
-        <p className="text-base sm:text-lg md:text-xl font-normal leading-6 sm:leading-7 md:leading-8 w-full sm:w-auto mt-2">
+        <p className="text-base font-normal pt-2  sm:w-[700px] sm:pt-2 sm:text-lg md:text-xl sm:font-normal leading-6 sm:leading-7 md:leading-8 w-full m:w-auto mt-2">
           We help entrepreneurs and business leaders build and launch innovative
           custom software solutions to the market across a range of verticals &
           industries. We can help you turn your vision into a successful product
@@ -14,7 +15,7 @@ function WhatWeDo() {
           your company.
         </p>
         <div className="my-20 sm:pt-30 drop-shadow-2xl mx-4  flex flex-wrap items-start justify-center gap-4">
-          <div className="rounded-lg h-[280px] w-full sm:w-[360px] p-6 bg-purple-100 ">
+          <div className="rounded-lg h-[280px] w-full sm:w-[360px] p-6 bg-purple-100/20 ">
             <svg
               xmlns="http://www.w3.org/2000/svg"
               width="64"
@@ -39,7 +40,7 @@ function WhatWeDo() {
               The Structured Process Behind Successful Product Development
             </p>
           </div>
-          <div className="rounded-lg h-[280px] w-full sm:w-[360px] p-6 bg-purple-100">
+          <div className="rounded-lg h-[280px] w-full sm:w-[360px] p-6 bg-purple-100/20">
             <svg
               xmlns="http://www.w3.org/2000/svg"
               width="66"
@@ -65,7 +66,7 @@ function WhatWeDo() {
               functional
             </p>
           </div>
-          <div className="rounded-lg h-[280px] w-full sm:w-[360px] p-6 bg-purple-100">
+          <div className="rounded-lg h-[280px] w-full sm:w-[360px] p-6 bg-purple-100/20">
             <svg
               xmlns="http://www.w3.org/2000/svg"
               width="60"
@@ -88,7 +89,7 @@ function WhatWeDo() {
               (MVP)
             </p>
           </div>
-          <div className="rounded-lg h-[280px] w-full sm:w-[360px] p-6 bg-purple-100">
+          <div className="rounded-lg h-[280px] w-full sm:w-[360px] p-6 bg-purple-100/20">
             <svg
               xmlns="http://www.w3.org/2000/svg"
               width="64"
@@ -131,7 +132,7 @@ function WhatWeDo() {
               tailored to your needs
             </p>
           </div>
-          <div className="rounded-lg h-[280px] w-full sm:w-[360px] p-6 bg-purple-100">
+          <div className="rounded-lg h-[280px] w-full sm:w-[360px] p-6 bg-purple-100/20">
             <svg
               xmlns="http://www.w3.org/2000/svg"
               width="60"
