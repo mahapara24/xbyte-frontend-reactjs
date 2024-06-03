@@ -7,7 +7,6 @@ const newsItems = [
       "Our client, Fave, the app for superfans to connect with like-minded music lovers and obsess over their favourite artists, has",
     imgSrc: "https://altar.io/wp-content/uploads/2023/12/three-people-team.png",
     link: "https://techcrunch.com/2023/10/12/fave-the-app-for-superfans-raises-2-million/?guccounter=1#new_tab",
-    bgColor: "bg-blue-100",
   },
   {
     title: "Altar Named Leading Global Company in Manifest 2022 Awards",
@@ -15,7 +14,6 @@ const newsItems = [
       "We are thrilled to share that we have been recognized as a global industry leader by The Manifest in their",
     imgSrc: "https://altar.io/wp-content/uploads/2023/12/three-people-team.png",
     link: "#",
-    bgColor: "bg-orange-100",
   },
   {
     title: "Altar Named Top B2B company by Manifest",
@@ -23,7 +21,6 @@ const newsItems = [
       "We made it into the top 3 for “most reviewed software developers in Portugal.” Thank you to everyone who wrote",
     imgSrc: "https://altar.io/wp-content/uploads/2023/12/three-people-team.png",
     link: "#",
-    bgColor: "bg-teal-100",
   },
   {
     title: "Altar Co-Founder CEO Interviewed by Forbes",
@@ -31,14 +28,14 @@ const newsItems = [
       "Daniel was invited to share what we’ve been doing and the evolution of our business lands",
     imgSrc: "https://altar.io/wp-content/uploads/2023/12/three-people-team.png",
     link: "#",
-    bgColor: "bg-lime-100",
   },
   // ...more items
 ];
 
 const News: React.FC = () => {
   const [currentIndex, setCurrentIndex] = useState(0);
-  const itemsPerPage = 3; // Number of items to show per slide
+  const itemsPerPage =
+    window.innerWidth < 640 ? 1 : window.innerWidth < 768 ? 2 : 3;
 
   const nextSlide = () => {
     setCurrentIndex(
@@ -54,29 +51,25 @@ const News: React.FC = () => {
   };
 
   return (
-    <div className="container mx-auto px-8 py-12">
+    <div className="container mx-auto px-8 py-12 relative">
       <header className="mb-12 text-center">
         <h1 className="text-4xl font-bold mb-4">News</h1>
         <p className="text-lg text-gray-600">
           Read the latest stories from our world.
         </p>
       </header>
-      <div className="relative">
-        <div className="flex overflow-x-auto space-x-6">
+      <div className="overflow-hidden mx-2 sm:mx-12">
+        <div className="flex space-x-6">
           {newsItems
             .slice(currentIndex, currentIndex + itemsPerPage)
             .map((item, index) => (
               <div
                 key={index}
-                className={`flex-none w-80 p-6 bg-white rounded-lg shadow-lg hover:shadow-xl transition-shadow duration-300 ${
-                  index === 0 ? "ml-6" : ""
-                }`}
+                className="flex-none w-64 sm:w-80 p-6 bg-white rounded-lg shadow-lg hover:shadow-xl transition-shadow duration-300"
               >
-                <div
-                  className={`p-6 rounded-t-lg ${item.bgColor} flex justify-center items-center`}
-                >
+                <div className="flex justify-center items-center">
                   <img
-                    className="h-24 w-24"
+                    className="h-24 w-24 rounded-full"
                     src={item.imgSrc}
                     alt={item.title}
                   />
@@ -92,19 +85,19 @@ const News: React.FC = () => {
               </div>
             ))}
         </div>
-        <button
-          onClick={prevSlide}
-          className="absolute top-1/2 left-4 transform -translate-y-1/2 bg-pink-500 text-white p-2 rounded-full"
-        >
-          ❮
-        </button>
-        <button
-          onClick={nextSlide}
-          className="absolute top-1/2 right-4 transform -translate-y-1/2 bg-pink-500 text-white p-2 rounded-full"
-        >
-          ❯
-        </button>
       </div>
+      <button
+        onClick={prevSlide}
+        className="absolute top-1/2 left-4 transform -translate-y-1/2 bg-pink-500 text-white p-2 rounded-full z-10"
+      >
+        ❮
+      </button>
+      <button
+        onClick={nextSlide}
+        className="absolute top-1/2 right-4 transform -translate-y-1/2 bg-pink-500 text-white p-2 rounded-full z-10"
+      >
+        ❯
+      </button>
     </div>
   );
 };
